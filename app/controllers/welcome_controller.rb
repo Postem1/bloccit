@@ -1,6 +1,7 @@
 class WelcomeController < ApplicationController
 
   def index
+
   end
 
   def about
@@ -8,5 +9,6 @@ class WelcomeController < ApplicationController
 
   def faq
   end
+
 
 end

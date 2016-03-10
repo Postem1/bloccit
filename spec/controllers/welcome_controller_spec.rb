@@ -1,5 +1,4 @@
 require 'rails_helper'
-#why don't we use the require_relative?
 
 RSpec.describe WelcomeController, type: :controller do
 
@@ -10,7 +9,7 @@ RSpec.describe WelcomeController, type: :controller do
 
       get :index
 
-      expect(response). to render_template("index")
+      expect(response).to render_template("index")
     end
   end
 
