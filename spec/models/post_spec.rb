@@ -3,9 +3,8 @@ require 'rails_helper'
 RSpec.describe Post, type: :model do
   let(:post) { Post.create!(title: "New Post Title", body: "New Post Body") }
 
-
+#tests whether "post" will return a non-nil value when post.title is called.
   describe "attributes" do
-
     it "responds to title" do
       expect(post).to respond_to(:title)
     end

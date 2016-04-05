@@ -6,12 +6,10 @@ RSpec.describe PostsController, type: :controller do
 
 
   describe "GET #index" do
-
     it "returns http success" do
       get :index
       expect(response).to have_http_status(:success)
     end
-
 
     it "assigns [my_post] to @posts" do
     get :index
@@ -22,7 +20,6 @@ RSpec.describe PostsController, type: :controller do
 
 
   describe "GET show" do
-
     it "returns http success" do
       get :show, {id: my_post.id}
       expect(response).to have_http_status(:success)
@@ -42,7 +39,6 @@ RSpec.describe PostsController, type: :controller do
 
 
   describe "GET new" do
-
     it "returns http success" do
       get :new
       expect(response).to have_http_status(:success)
@@ -57,12 +53,10 @@ RSpec.describe PostsController, type: :controller do
       get :new
       expect(assigns(:post)).not_to be_nil
     end
-
   end
 
 
   describe "POST create" do
-
     it "increases the number of Post by 1" do
       expect{post :create, post: {title: RandomData.random_sentence, body: RandomData.random_paragraph}}.to change(Post,:count).by(1)
     end
@@ -76,7 +70,6 @@ RSpec.describe PostsController, type: :controller do
       post :create, post: {title: RandomData.random_sentence, body: RandomData.random_paragraph}
         expect(response).to redirect_to Post.last
     end
-
   end
 
 

@@ -10,7 +10,6 @@ end
 
 group :development do
   gem 'sqlite3'
-  gem 'pry-rails'
 end
 
 group :development, :test do
