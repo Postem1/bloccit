@@ -6,9 +6,9 @@
 
     <p>Guidelines for Ads</p>
     <ul>
-       <li>Make sure it rhymes.</li>
+       <li>Make sure the ad is expensive.</li>
        <li>Don't use the letter "A".</li>
-       <li>The incessant use of hashtags will get you banned.</li>
+       <li>Ads must be funny</li>
     </ul>
 
   </div>
@@ -25,6 +25,11 @@
     <div class="form-group">
          <%= f.label :body %>
          <%= f.text_area :body, rows: 8, class: 'form-control', placeholder: "Enter ad body" %>
+    </div>
+
+    <div class="form-group">
+         <%= f.label :price %>
+         <%= f.text_field :price, class: 'form-control', placeholder: "Enter ad amount" %>
     </div>
 
     <div class="form-group">
