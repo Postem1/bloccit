@@ -16,3 +16,12 @@ require 'random_data'
       body: RandomData.random_paragraph
    )
   end
+
+  50.times do
+    Question.create!(
+      title:  RandomData.random_question,
+      body:   RandomData.random_paragraph,
+      resolved: RandomData.random_boolean
+   )
+  end
+  questions = Question.all

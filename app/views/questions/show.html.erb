@@ -1,0 +1,6 @@
+<h1><%= @question.title %></h1><br>
+  <p><%= @question.body %></p><br>
+  <h3>Resolved?:</h3><%=@question.resolved  %><br><br>
+
+    <%= link_to "Edit", edit_question_path(@question)%><br><br>
+    <%= link_to "Delete Question", @question, method: :delete, data: {confirm: 'Are you sure you want to delete this question?'} %>
