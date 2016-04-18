@@ -2,7 +2,12 @@ require 'rails_helper'
 
 RSpec.describe TopicsController, type: :controller do
 
-  let(:my_topic) {Topic.create!(name: RandomData.random_sentence, description: RandomData.random_paragraph)}
+  let(:my_topic) {
+    Topic.create!(
+      name: RandomData.random_sentence,
+      description: RandomData.random_paragraph
+      )
+  }
 
   describe "GET index" do
     it "returns http success" do
@@ -53,7 +58,8 @@ RSpec.describe TopicsController, type: :controller do
 
   describe "POST create" do
     it "increases the number of topics by 1" do
-         expect{ post :create, {topic: {name: RandomData.random_sentence, description: RandomData.random_paragraph}}}.to change(Topic,:count).by(1)
+         expect{ post :create, {topic: {name: RandomData.random_sentence, description: RandomData.random_paragraph}}
+                }.to change(Topic,:count).by(1)
     end
 
     it "assigns Topic.last to @topic" do
