@@ -15,7 +15,7 @@ class CommentsController < ApplicationController
         redirect_to [@post.topic, @post]
     else
       flash[:alert] = "Comment failed to save"
-        redirect_to[@post.topic, @post]
+        redirect_to [@post.topic, @post]
     end
   end
 
