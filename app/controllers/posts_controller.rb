@@ -19,7 +19,8 @@ class PostsController < ApplicationController
     @post.user = current_user
 
     if @post.save
-      flash[:notice] = "Post was saved."
+      @post.labels = Label.update_labels(params[:post][:labels])
+      flash[:notice] = "Post was saved successfully."
       redirect_to [@topic, @post]
     else
       flash.now[:alert] = "There was an error saving the post. Please try again."
@@ -35,9 +36,9 @@ class PostsController < ApplicationController
     @post = Post.find(params[:id])
     @post.assign_attributes(post_params)
 
-
     if @post.save
-      flash[:notice] = "Post was updated."
+      @post.labels = Label.update_labels(params[:post][:labels])
+      flash[:notice] = "Post was updated successfully."
       redirect_to [@post.topic, @post]
     else
       flash.now[:alert] = "There was an error saving the post. Please try again."
