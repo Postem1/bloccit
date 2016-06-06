@@ -34,8 +34,9 @@ users = User.all
   100.times do
     Comment.create!(
       user: users.sample,
-      post: posts.sample,
-      body: RandomData.random_paragraph
+      body: RandomData.random_paragraph,
+      commentable_id: [1,2,3,4,5,6,7,8,9].sample,
+      commentable_type:["Post", "Topic"].sample
    )
   end
 

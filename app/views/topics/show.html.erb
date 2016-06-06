@@ -37,6 +37,17 @@
     <% end %>
 </div>
 
+<div class="row">
+  <div class="col-md-8">
+    <p>
+      <% @topic.comments.each do |comment| %>
+      <%= render partial: "comments/comment", locals: {comment: comment, commentable: @topic} %>
+      <% end %>
+    </p>
+
+  </div>
+</div>
+
 <h1><%= @topic.name %></h1>
 <% if user_is_authorized_for_topics? %>
   <%= link_to "Edit Topic", edit_topic_path, class: 'btn btn-success' %>
