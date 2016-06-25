@@ -11,6 +11,7 @@
         <br />
         <%= @topic.description %>
     </p>
+
     <% @topic.posts.each do |post| %>
       <div class="media">
         <%= render partial: 'votes/voter', locals: { post: post } %>
@@ -21,11 +22,12 @@
           </h4>
           <small>
               submitted <%= time_ago_in_words(post.created_at) %> ago by <%= post.user.name %>
-              <%= post.comments.count %> Comments
+              <%= pluralize(post.comments.count, 'comment') %>
           </small>
         </div>
       </div>
     <% end %>
+
   </div>
 
   <% if current_user %>
