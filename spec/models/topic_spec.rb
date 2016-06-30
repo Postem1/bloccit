@@ -3,7 +3,6 @@ require 'rails_helper'
 RSpec.describe Topic, type: :model do
 
   let(:topic) { create(:topic) }
-
   let(:public) {true}
 
   it { is_expected.to have_many(:labelings) }
@@ -35,6 +34,18 @@ RSpec.describe Topic, type: :model do
 
       it "returns only public topics if user is nil" do
         expect(Topic.visible_to(nil)).to eq([@public_topic])
+      end
+    end
+
+    describe "publicly_viewable" do
+      it " only expects public topics to be viewable" do
+        expect(Topic.publicly_viewable).to eq([@public_topic])
+      end
+    end
+
+    describe "privatey_viewable" do
+      it "only expects private topics to be viewable" do
+        expect(Topic.privately_viewable).to eq([@private_topic])
       end
     end
   end
