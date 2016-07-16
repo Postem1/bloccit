@@ -9,6 +9,7 @@ class Api::V1::PostsController < Api::V1::BaseController
 
   def update
     post = Post.find(params[:id])
+    post.assign_attributes(post_params)
 
     if post.update_attributes(post_params)
       render json: post.to_json, status: 201

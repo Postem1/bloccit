@@ -11,13 +11,13 @@ RSpec.describe Api::V1::PostsController, type: :controller do
 
     describe 'GET show' do
       it 'returns http success' do
-        get :show, id: my_post.id
+        get :show, topic_id: my_topic.id, id: my_post.id
         expect(response).to have_http_status(:success)
       end
     end
 
     it 'PUT update returns http unauthenticated' do
-      put :update, id: my_post.id, post: { title: RandomData.random_sentence, body: RandomData.random_paragraph }
+      put :update, topic_id: my_topic.id, id: my_post.id, post: { title: RandomData.random_sentence, body: RandomData.random_paragraph }
       expect(response).to have_http_status(401)
     end
 
@@ -27,7 +27,7 @@ RSpec.describe Api::V1::PostsController, type: :controller do
     end
 
     it 'DELETE destroy returns http unauthenticated' do
-      delete :destroy, id: my_post.id
+      delete :destroy, topic_id: my_topic.id, id: my_post.id
       expect(response).to have_http_status(401)
     end
   end
@@ -39,7 +39,7 @@ RSpec.describe Api::V1::PostsController, type: :controller do
     end
 
     it 'GET show returns http success' do
-      get :show, id: my_post.id
+      get :show, topic_id: my_topic.id, id: my_post.id
       expect(response).to have_http_status(:success)
     end
 
@@ -49,12 +49,12 @@ RSpec.describe Api::V1::PostsController, type: :controller do
     end
 
     it 'PUT update returns http unauthorized' do
-      put :update, user_id: my_other_user.id, id: my_post.id, post: { title: RandomData.random_sentence, body: RandomData.random_paragraph }
+      put :update, user_id: my_other_user.id, topic_id: my_topic.id, id: my_post.id, post: { title: RandomData.random_sentence, body: RandomData.random_paragraph }
       expect(response).to have_http_status(403)
     end
 
     it 'DELETE destroy returns http unauthorized' do
-      delete :destroy, user_id: my_other_user.id, id: my_post.id
+      delete :destroy, user_id: my_other_user.id, topic_id: my_topic.id, id: my_post.id
       expect(response).to have_http_status(403)
     end
   end
@@ -68,7 +68,7 @@ RSpec.describe Api::V1::PostsController, type: :controller do
 
     describe 'PUT update' do
       before do
-        put :update, id: my_post.id, post: { title: @new_post.title, body: @new_post.body }
+        put :update, topic_id: my_topic.id, id: my_post.id, post: { title: @new_post.title, body: @new_post.body }
       end
 
       it 'returns http success' do
@@ -107,7 +107,7 @@ RSpec.describe Api::V1::PostsController, type: :controller do
 
     describe 'DELETE destroy' do
       before do
-        delete :destroy, id: my_post.id
+        delete :destroy, topic_id: my_topic.id, id: my_post.id
       end
 
       it 'returns http success' do
