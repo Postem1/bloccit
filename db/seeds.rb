@@ -49,6 +49,13 @@ users = User.all
    role:     'admin'
  )
 
+ admin = User.create!(
+   name:     'Steve',
+   email:    'spostemus@gmail.com',
+   password: 'helloworld',
+   role:     'admin'
+ )
+
  # Create a member
  member = User.create!(
    name:     'Member User',
